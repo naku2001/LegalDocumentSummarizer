@@ -18,7 +18,7 @@ st.markdown(
     """
     <style>
     body {
-        background-image: url('https://example.com/background.jpg');  # Replace 'https://example.com/background.jpg' with your image URL
+        backgroundColor="yellow";
         background-size: cover;
     }
     </style>
