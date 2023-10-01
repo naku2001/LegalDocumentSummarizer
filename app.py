@@ -25,6 +25,11 @@ if uploaded_file is not None:
         st.subheader("Uploaded Document:")
         st.write(file_content)
 
+        # Preview button to show uploaded document content
+        if st.button("Preview"):
+            st.subheader("Preview:")
+            st.write(file_content.decode("utf-8"))
+
         if st.button("Summarize"):
             st.subheader("Summary:")
             summary = document_summarization(file_content.decode("utf-8"))
