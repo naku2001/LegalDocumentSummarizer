@@ -25,7 +25,7 @@ if uploaded_file is not None:
         st.subheader("Uploaded Document:")
 
         # Display the first few words of the document when 'Review' button is clicked
-        if st.button("Review Document"):
+        if st.button("Preview Document"):
             first_few_words = " ".join(file_content.decode("utf-8").split()[:50])  # Show first 50 words
             st.write(first_few_words + "...")
         
