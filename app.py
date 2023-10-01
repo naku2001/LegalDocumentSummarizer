@@ -24,12 +24,11 @@ if uploaded_file is not None:
     if uploaded_file.type == "text/plain" or uploaded_file.type == "application/pdf":
         st.subheader("Uploaded Document:")
 
-        # Display the 'Review' button
-        review_button = st.button("Review Document")
-
-        if review_button:
-            st.write(file_content.decode("utf-8"))
-
+        # Display the first few words of the document when 'Review' button is clicked
+        if st.button("Review Document"):
+            first_few_words = " ".join(file_content.decode("utf-8").split()[:50])  # Show first 50 words
+            st.write(first_few_words + "...")
+        
         if st.button("Summarize"):
             st.subheader("Summary:")
             summary = document_summarization(file_content.decode("utf-8"))
