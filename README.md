@@ -1,4 +1,4 @@
-Streamlit Legal Document Summarizer
+#Streamlit Legal Document Summarizer
 This repository contains a powerful tool for summarizing legal documents while preserving their structure.
 Leveraging OpenAI's GPT-3 language model and Streamlit framework, this application allows users to upload legal documents in TXT or PDF formats. 
 The intelligent backend processes the uploaded documents and generates concise, accurate summaries, ensuring essential details are retained.
