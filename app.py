@@ -23,11 +23,9 @@ if uploaded_file is not None:
 
     if uploaded_file.type == "text/plain" or uploaded_file.type == "application/pdf":
         st.subheader("Uploaded Document:")
-        st.write(file_content)
 
-        # Preview button to show uploaded document content
-        if st.button("Preview"):
-            st.subheader("Preview:")
+        # Display the 'Review' button
+        if st.button("Review Document"):
             st.write(file_content.decode("utf-8"))
 
         if st.button("Summarize"):
