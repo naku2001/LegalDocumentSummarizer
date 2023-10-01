@@ -18,7 +18,7 @@ st.markdown(
     """
     <style>
     body {
-        backgroundColor="yellow";
+        background-image=url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Flegal-services.html&psig=AOvVaw1BA7yWCjuSeIAA8wlBjIXZ&ust=1696252402436000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPC87eD21IEDFQAAAAAdAAAAABAE");
         background-size: cover;
     }
     </style>
