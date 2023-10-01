@@ -27,6 +27,7 @@ st.markdown(
 )
 
 st.title("Legal Document Summarizer")
+st.image("pexels-photo-5668882.jpeg")
 
 uploaded_file = st.file_uploader("Upload a legal document (TXT or PDF)", type=["txt", "pdf"])
 
