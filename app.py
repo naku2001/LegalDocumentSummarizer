@@ -13,7 +13,19 @@ def document_summarization(document_text):
     )
     return response.choices[0].text
 
-# Streamlit UI
+# Streamlit UI with background image
+st.markdown(
+    """
+    <style>
+    body {
+        background-image: url('https://example.com/background.jpg');  # Replace 'https://example.com/background.jpg' with your image URL
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("Legal Document Summarizer")
 
 uploaded_file = st.file_uploader("Upload a legal document (TXT or PDF)", type=["txt", "pdf"])
@@ -25,7 +37,7 @@ if uploaded_file is not None:
         st.subheader("Uploaded Document:")
 
         # Display the first few words of the document when 'Review' button is clicked
-        if st.button("Preview Document"):
+        if st.button("Review Document"):
             first_few_words = " ".join(file_content.decode("utf-8").split()[:50])  # Show first 50 words
             st.write(first_few_words + "...")
         
