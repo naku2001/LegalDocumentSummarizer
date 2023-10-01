@@ -25,7 +25,9 @@ if uploaded_file is not None:
         st.subheader("Uploaded Document:")
 
         # Display the 'Review' button
-        if st.button("Review Document"):
+        review_button = st.button("Review Document")
+
+        if review_button:
             st.write(file_content.decode("utf-8"))
 
         if st.button("Summarize"):
