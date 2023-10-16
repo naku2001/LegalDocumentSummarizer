@@ -1,5 +1,5 @@
-<p align="center">
-  #Streamlit Legal Document Summarizer 
+<p>
+  
   <img src="https://github.com/naku2001/LegalDocumentSummarizer/blob/main/pexels-photo-5668882.jpeg",height=3/>
 </p>
 
