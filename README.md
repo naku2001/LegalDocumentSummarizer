@@ -3,12 +3,6 @@
   <img src="https://github.com/naku2001/LegalDocumentSummarizer/blob/main/pexels-photo-5668882.jpeg",height=3/>
 </p>
 <h2> 🚀 &nbsp;Some Tools I Have Used and Learned</h2>
-<p align="left">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45"/>
-</p>
-
 #Streamlit Legal Document Summarizer
 This repository contains a powerful tool for summarizing legal documents while preserving their structure.
 Leveraging OpenAI's GPT-3 language model and Streamlit framework, this application allows users to upload legal documents in TXT or PDF formats. 
