@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/naku2001/LegalDocumentSummarizer/blob/main/pexels-photo-5668882.jpeg animation=fadeIn&type=waving&color=gradient&height=100"/>
+  <img src="https://github.com/naku2001/LegalDocumentSummarizer/blob/main/pexels-photo-5668882.jpeg ,height=100"/>
 </p>
 
 #Streamlit Legal Document Summarizer
