@@ -1,3 +1,6 @@
 
+python-decouple
 streamlit
 openai
+python-docx
+fpdf
