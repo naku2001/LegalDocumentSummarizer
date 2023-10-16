@@ -1,4 +1,4 @@
-
+pyperclip
 python-decouple
 streamlit
 openai
