@@ -1,6 +1,5 @@
 <h2> 🚀 &nbsp;LEGAL DOCUMENT SUMMARIZER</h2>
 
-![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 This repository contains a powerful tool for summarizing legal documents while preserving their structure.
 Leveraging OpenAI's GPT-3 language model and Streamlit framework, this application allows users to upload legal documents in TXT or PDF formats. 
@@ -30,6 +29,9 @@ To run the application locally, ensure you have Python installed. Clone this rep
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" alt="python" width="45" height="45"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="python" width="45" height="45"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" alt="github" width="45" height="45"/>
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
+
 </p>
 
 <h3>&nbsp;CONTRIBUTIONS</h3>
