@@ -34,10 +34,51 @@ User-Friendly Interface: Simple and intuitive, allowing users to effortlessly up
 
 <h3>&nbsp;USER GUIDE</h3>
 
-<h3>&nbsp;INSTALLATION</h3>
+<h4>&nbsp;PREREQUISITES</h4>
 
-To run the application locally, ensure you have Python installed. Clone this repository and install the required dependencies using pip install 
--r requirements.txt. Then, execute the app using streamlit run app.py.
+Before you begin, ensure you have the following installed on your system:
+
+- Python 3.10
+- pip (Python package manager)
+
+<h4>&nbsp;INSTALLATION</h4>
+
+1. Clone this repository or download the source code to your local machine.
+
+```bash
+git clone <repository_url>
+```
+
+2. Navigate to the project directory.
+
+```bash
+cd Insightful-Analytics-App
+```
+
+3. Install the required Python packages using pip.
+
+```bash
+pip install -r requirements.txt
+```
+## Usage
+
+1. Set up your OpenAI API key:
+
+   - Create an account and obtain an API key from [OpenAI](https://beta.openai.com/signup/).
+   - Store your API key in a .env file in the project directory:
+
+   ```plaintext
+   OPENAI_API_KEY=your_api_key_here
+   ```
+
+2. Launch the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+3. The app will open in your default web browser. You can now use it to analyze text or documents.
+
 
 <h2> 🚀 &nbsp;Tools Used</h2>
 <p align="left">
