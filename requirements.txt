@@ -4,3 +4,4 @@ streamlit
 openai
 python-docx
 fpdf
+PyPDF2
