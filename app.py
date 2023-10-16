@@ -9,6 +9,7 @@ import chardet
 import os
 import time
 import base64
+import pyperclip
 
 # Load the API key from the .env file
 api_key = st.secrets["API_KEY"]
@@ -136,16 +137,10 @@ if input_choice == "Manually Input Text":
         encoding = detect_text_encoding(user_input.encode("utf-8"))
         summary = document_summarization(user_input)
         st.write(summary)
-
-        if st.button("Download Summary as PDF"):
-            summary = document_summarization(user_input.decode("utf-8"))
-            save_to_pdf(summary, f"summary.pdf")
-            st.success("Summary Saved! Check Downloads Folder.")
-
-        if st.button("Download Summary as Word"):
-            summary = document_summarization(user_input.decode("utf-8"))
-            save_to_word(summary, f"summary.docx")
-            st.success("Summary Saved! Check Downloads Folder.")
+        
+        if st.button("Copy Text"):
+            # Use pyperclip to copy the text to the clipboard
+            pyperclip.copy(summary)
 
 if input_choice == "Upload a Document":
     uploaded_file = st.file_uploader("Upload a legal document (TXT, PDF, or DOCX)", type=["txt", "pdf", "docx"])
