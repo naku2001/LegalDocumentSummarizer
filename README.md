@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?text=Hey Everyone!🕹️&animation=fadeIn&type=waving&color=gradient&height=100"/>
+  <img src="https://github.com/naku2001/LegalDocumentSummarizer/blob/main/pexels-photo-5668882.jpeg"/>
 </p>
 
 #Streamlit Legal Document Summarizer
