@@ -185,16 +185,6 @@ if input_choice == "Upload a Document":
                         # Use pyperclip to copy the text to the clipboard
                         pyperclip.copy(summary)
                         st.success("Text Copied")
-                    
-                    if st.button("Download Summary as PDF"):
-                        pdf_output = save_to_pdf(summary, "Summary.pdf")
-                        st.download_button(label="Download PDF", key="pdf", data=pdf_output, file_name="Summary.pdf", mime="application/pdf")
-                        st.success("Summary Downloaded")
-                    
-                    if st.button("Download Summary as Word"):
-                        doc_output = save_to_word(summary, "Summary.docx")
-                        st.download_button(label="Download Word", key="docx", data=doc_output, file_name="Summary.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
-                        st.success("Summary Downloaded")
 
             else:
                 st.warning("The uploaded file is empty.")
