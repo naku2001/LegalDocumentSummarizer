@@ -62,8 +62,8 @@ def save_to_pdf(content, filename):
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(190, 10, txt=content, align="L")
 
-    pdf_output = BytesIO()
-    pdf_output.write(pdf.buffer)
+    pdf_output = io.BytesIO()
+    pdf.output(pdf_output)
 
     pdf_output.seek(0)
 
@@ -74,20 +74,12 @@ def save_to_word(content, filename):
     doc = Document()
     doc.add_paragraph(content)
 
-    doc_output = BytesIO()
+    doc_output = io.BytesIO()
     doc.save(doc_output)
 
     doc_output.seek(0)
 
     return doc_output
-
-# Streamlit file download function
-def get_binary_file_downloader_html(bin_file, file_label='File'):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    bin_str = base64.b64encode(data).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_label}">Click here to download {file_label}</a>'
-    return href
 
 # Streamlit UI with background image
 st.markdown(
@@ -141,6 +133,7 @@ if input_choice == "Manually Input Text":
         if st.button("Copy Text"):
             # Use pyperclip to copy the text to the clipboard
             pyperclip.copy(summary)
+            st.success("Text Copied")
 
 if input_choice == "Upload a Document":
     uploaded_file = st.file_uploader("Upload a legal document (TXT, PDF, or DOCX)", type=["txt", "pdf", "docx"])
@@ -187,24 +180,28 @@ if input_choice == "Upload a Document":
                     encoding = detect_text_encoding(file_content)
                     summary = document_summarization(file_content)
                     st.write(summary)
+
+                                
+                    if st.button("Copy Text"):
+                        # Use pyperclip to copy the text to the clipboard
+                        pyperclip.copy(summary)
+                        st.success("Text Copied")
                     
                     if st.button("Download Summary as PDF"):
                         summary = document_summarization(file_content.decode("utf-8"))
                         pdf_output = save_to_pdf(summary, "Summary.pdf")
-                        st.write(summary)
-                        st.write(pdf_output)
-                        st.success("Test")
                         
                         # Provide a way for the user to download the PDF
-                        st.markdown(get_binary_file_downloader_html(pdf_output, "Summary.pdf"), unsafe_allow_html=True)
+                        st.download_button(label="Download PDF", key="pdf", data=pdf_output, file_name="Summary.pdf", mime="application/pdf")
+                        st.success("Summary Downloaded")
                     
                     if st.button("Download Summary as Word"):
                         summary = document_summarization(file_content.decode("utf-8"))
                         doc_output = save_to_word(summary, "Summary.docx")
                     
                         # Provide a way for the user to download the Word document
-                        st.markdown(get_binary_file_downloader_html(doc_output, "Summary.docx"), unsafe_allow_html=True)
-
+                        st.download_button(label="Download Word", key="docx", data=doc_output, file_name="Summary.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+                        st.success("Summary Downloaded")
 
             else:
                 st.warning("The uploaded file is empty.")
