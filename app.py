@@ -180,8 +180,7 @@ if input_choice == "Upload a Document":
                     encoding = detect_text_encoding(file_content)
                     summary = document_summarization(file_content)
                     st.write(summary)
-
-                                
+                    
                     if st.button("Copy Text"):
                         # Use pyperclip to copy the text to the clipboard
                         pyperclip.copy(summary)
