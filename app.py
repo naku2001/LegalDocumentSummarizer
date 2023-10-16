@@ -1,6 +1,6 @@
 import streamlit as st
 import openai
-#from decouple import config
+from io import BytesIO
 from fpdf import FPDF
 from docx import Document
 from PyPDF2 import PdfReader
@@ -8,11 +8,11 @@ import io
 import chardet
 import os
 import time
-from config import OPENAI_API_KEY
+import base64
 
 # Load the API key from the .env file
-# api_key = OPENAI_API_KEY
 api_key = st.secrets["API_KEY"]
+
 # Set up OpenAI API key
 openai.api_key = api_key
 
@@ -55,25 +55,30 @@ def analyze_sentiment(document_text):
     return response.choices[0].text
 
 # Function to save summarized content to PDF
-def save_to_pdf(content, filename):
+def save_to_pdf(content):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(190, 10, txt=content, align="L")
-    pdf.output(filename)
 
-    # Get the path to the user's Downloads folder
-    downloads_path = os.path.expanduser("~" + os.sep + "Downloads")
+    pdf_output = BytesIO()
+    pdf_output.write(pdf.buffer)
 
-    # Save the PDF file in the Downloads folder
-    pdf.output(os.path.join(downloads_path, filename))
+    pdf_output.seek(0)
+
+    return pdf_output
 
 # Function to save summarized content to Word document
-def save_to_word(content, filename):
+def save_to_word(content):
     doc = Document()
     doc.add_paragraph(content)
-    doc.save(filename)
 
+    doc_output = BytesIO()
+    doc.save(doc_output)
+
+    doc_output.seek(0)
+
+    return doc_output
 # Streamlit UI with background image
 st.markdown(
     """
@@ -182,13 +187,14 @@ if input_choice == "Upload a Document":
 
                     if st.button("Download Summary as PDF"):
                         summary = document_summarization(file_content.decode("utf-8"))
-                        save_to_pdf(summary, f"Summary {uploaded_file.name}.pdf")
-                        st.success("Summary Saved! Check Downloads Folder.")
-
+                        pdf_output = save_to_pdf(summary)
+                        st.download_button(label="Download PDF", key="pdf", data=pdf_output, file_name="Summary.pdf", mime="application/pdf")
+                    
                     if st.button("Download Summary as Word"):
                         summary = document_summarization(file_content.decode("utf-8"))
-                        save_to_word(summary, f"Summary {uploaded_file.name}.docx")
-                        st.success("Summary Saved!")
+                        doc_output = save_to_word(summary)
+                        st.download_button(label="Download Word", key="docx", data=doc_output, file_name="Summary.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
             else:
                 st.warning("The uploaded file is empty.")
         else:
