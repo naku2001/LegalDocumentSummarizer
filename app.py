@@ -1,6 +1,6 @@
 import streamlit as st
 import openai
-from decouple import config
+#from decouple import config
 from fpdf import FPDF
 from docx import Document
 from PyPDF2 import PdfReader
