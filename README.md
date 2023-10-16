@@ -11,31 +11,28 @@ The intelligent backend processes the uploaded documents and generates concise, 
 <h3> &nbsp;FEATURES</h3>
 
 User-Friendly Interface: Simple and intuitive, allowing users to effortlessly upload legal documents for summarization and analysis.
-a. Review Document
-
+<li>Review Document</li> 
     Click the "Review Document" button.
     The app will provide you with a quick preview of the uploaded document, displaying the first few words.
 
-b. Sentiment Analysis
-
+<li>Sentiment Analysis</li>
     Click the "Sentiment Analysis" button.
     The app will analyze the sentiment of the uploaded document and provide a sentiment score.
 
-c. Entity Recognition
-
+<li>Entity Recognition</li>
     Click the "Entity Recognition" button.
     The app will identify and display entities, names, and locations found in the uploaded document.
 
-d. Ask Questions
-
+<li>Ask Questions</li>
     Enter your question in the "Ask a question on information in the document" input box.
     Click the "Answer Question" button.
     The app will provide you with an answer to your question based on the uploaded document.
-<h3>&nbsp;USER GUIDE</h3>
 
-Upload: Users can upload legal documents directly to the application in TXT or PDF formats.
-Summarize: With a click of a button, the application processes the document, retaining its structure while providing a concise summary.
-Review: Users can review both the original document and its summary side by side.
+<li>Summarization</li>
+    Click the "Summarize" button.
+    The app will provide you with a summary based on the uploaded document.
+
+<h3>&nbsp;USER GUIDE</h3>
 
 <h3>&nbsp;INSTALLATION</h3>
 
