@@ -11,7 +11,7 @@ import time
 from config import OPENAI_API_KEY
 
 # Load the API key from the .env file
-api_key = config("OPENAI_API_KEY")
+api_key = OPENAI_API_KEY
 
 # Set up OpenAI API key
 openai.api_key = api_key
