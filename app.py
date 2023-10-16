@@ -8,6 +8,7 @@ import io
 import chardet
 import os
 import time
+from config import OPENAI_API_KEY
 
 # Load the API key from the .env file
 api_key = config("OPENAI_API_KEY")
