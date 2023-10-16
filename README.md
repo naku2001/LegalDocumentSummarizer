@@ -1,5 +1,7 @@
-<h2> 🚀 &nbsp;LEGAL DOCUMENT SUMMARIZER</h2>
+# Perfect Makuwerere R204448U
+# Rirwa Anesu R204432D
 
+<h2> 🚀 &nbsp;LEGAL DOCUMENT SUMMARIZER</h2>
 
 This repository contains a powerful tool for summarizing legal documents while preserving their structure.
 Leveraging OpenAI's GPT-3 language model and Streamlit framework, this application allows users to upload legal documents in TXT or PDF formats. 
@@ -8,11 +10,27 @@ The intelligent backend processes the uploaded documents and generates concise, 
 
 <h3> &nbsp;FEATURES</h3>
 
-User-Friendly Interface: Simple and intuitive, allowing users to effortlessly upload legal documents for summarization.
-Accurate Summarization:  Utilizes OpenAI's GPT-3 for precise and contextually relevant document summaries.
-Preservation of Structure: Ensures the summarized document maintains the original structure and critical information.
-Flexible File Support: Supports both plain text (TXT) and PDF file formats, enhancing user convenience.
+User-Friendly Interface: Simple and intuitive, allowing users to effortlessly upload legal documents for summarization and analysis.
+a. Review Document
 
+    Click the "Review Document" button.
+    The app will provide you with a quick preview of the uploaded document, displaying the first few words.
+
+b. Sentiment Analysis
+
+    Click the "Sentiment Analysis" button.
+    The app will analyze the sentiment of the uploaded document and provide a sentiment score.
+
+c. Entity Recognition
+
+    Click the "Entity Recognition" button.
+    The app will identify and display entities, names, and locations found in the uploaded document.
+
+d. Ask Questions
+
+    Enter your question in the "Ask a question on information in the document" input box.
+    Click the "Answer Question" button.
+    The app will provide you with an answer to your question based on the uploaded document.
 <h3>&nbsp;USER GUIDE</h3>
 
 Upload: Users can upload legal documents directly to the application in TXT or PDF formats.
