@@ -149,13 +149,12 @@ if input_choice == "Manually Input Text":
 
 if input_choice == "Upload a Document":
     uploaded_file = st.file_uploader("Upload a legal document (TXT, PDF, or DOCX)", type=["txt", "pdf", "docx"])
+    success_message = st.success("File successfully uploaded.")
+    time.sleep(1)
+    success_message.empty()
 
     if uploaded_file is not None:
         file_content = uploaded_file.read()
-
-        success_message = st.success("File successfully uploaded.")
-        time.sleep(1)
-        success_message.empty()
         
         if uploaded_file.type == "text/plain" or uploaded_file.type == "application/pdf" or uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
             st.subheader("Uploaded Document:")
@@ -197,7 +196,10 @@ if input_choice == "Upload a Document":
                     if st.button("Download Summary as PDF"):
                         summary = document_summarization(file_content.decode("utf-8"))
                         pdf_output = save_to_pdf(summary, "Summary.pdf")
-                    
+                        st.write(summary)
+                        st.write(pdf_output)
+                        st.success("Test")
+                        
                         # Provide a way for the user to download the PDF
                         st.markdown(get_binary_file_downloader_html(pdf_output, "Summary.pdf"), unsafe_allow_html=True)
                     
