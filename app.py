@@ -55,7 +55,7 @@ def analyze_sentiment(document_text):
     return response.choices[0].text
 
 # Function to save summarized content to PDF
-def save_to_pdf(content):
+def save_to_pdf(content, filename):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
@@ -69,7 +69,7 @@ def save_to_pdf(content):
     return pdf_output
 
 # Function to save summarized content to Word document
-def save_to_word(content):
+def save_to_word(content, filename):
     doc = Document()
     doc.add_paragraph(content)
 
@@ -79,6 +79,15 @@ def save_to_word(content):
     doc_output.seek(0)
 
     return doc_output
+
+# Streamlit file download function
+def get_binary_file_downloader_html(bin_file, file_label='File'):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    bin_str = base64.b64encode(data).decode()
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{file_label}">Click here to download {file_label}</a>'
+    return href
+
 # Streamlit UI with background image
 st.markdown(
     """
@@ -184,16 +193,21 @@ if input_choice == "Upload a Document":
                     encoding = detect_text_encoding(file_content)
                     summary = document_summarization(file_content)
                     st.write(summary)
-
+                    
                     if st.button("Download Summary as PDF"):
                         summary = document_summarization(file_content.decode("utf-8"))
-                        pdf_output = save_to_pdf(summary)
-                        st.download_button(label="Download PDF", key="pdf", data=pdf_output, file_name="Summary.pdf", mime="application/pdf")
+                        pdf_output = save_to_pdf(summary, "Summary.pdf")
+                    
+                        # Provide a way for the user to download the PDF
+                        st.markdown(get_binary_file_downloader_html(pdf_output, "Summary.pdf"), unsafe_allow_html=True)
                     
                     if st.button("Download Summary as Word"):
                         summary = document_summarization(file_content.decode("utf-8"))
-                        doc_output = save_to_word(summary)
-                        st.download_button(label="Download Word", key="docx", data=doc_output, file_name="Summary.docx", mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+                        doc_output = save_to_word(summary, "Summary.docx")
+                    
+                        # Provide a way for the user to download the Word document
+                        st.markdown(get_binary_file_downloader_html(doc_output, "Summary.docx"), unsafe_allow_html=True)
+
 
             else:
                 st.warning("The uploaded file is empty.")
